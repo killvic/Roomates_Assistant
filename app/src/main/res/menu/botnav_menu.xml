@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/miGroups"
+        android:title="Groups"
+        android:icon="@drawable/ic_groups"/>
+
+    <item
+        android:id="@+id/miFriends"
+        android:title="Friends"
+        android:icon="@drawable/ic_friends"/>
+
+    <item
+        android:id="@+id/miActivities"
+        android:title="Activities"
+        android:icon="@drawable/ic_activity"/>
+
+    <item
+        android:id="@+id/miAccount"
+        android:title="Account"
+        android:icon="@drawable/ic_account"/>
+
+</menu>
