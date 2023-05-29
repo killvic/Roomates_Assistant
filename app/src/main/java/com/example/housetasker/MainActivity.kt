@@ -3,11 +3,16 @@ package com.example.housetasker
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
+import com.example.housetasker.Adapters.ScreenFragmentAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var botNavMenu: BottomNavigationView
+    private lateinit var viewPager: ViewPager2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,34 +39,42 @@ class MainActivity : AppCompatActivity() {
 
 
         // ----------------------------------------------------------------
+        // VIEWPAGER
+        val adapter = ScreenFragmentAdapter(this)
+        viewPager = findViewById(R.id.viewPager)
+        viewPager.adapter = adapter
+        viewPager.currentItem = 0
+
+        // ----------------------------------------------------------------
+        // BOTTOM NAVIGATION MENU
         botNavMenu = findViewById(R.id.bottomNavigationView)
 
         botNavMenu.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.miGroups -> {
                     supportFragmentManager.beginTransaction().apply{
-                        // on click action here
+                        viewPager.currentItem = 0
                         addToBackStack(null)
                         commit()
                     }
                 }
                 R.id.miFriends -> {
                     supportFragmentManager.beginTransaction().apply{
-                        // on click action here
+                        viewPager.currentItem = 1
                         addToBackStack(null)
                         commit()
                     }
                 }
                 R.id.miActivities -> {
                     supportFragmentManager.beginTransaction().apply{
-                        // on click action here
+                        viewPager.currentItem = 2
                         addToBackStack(null)
                         commit()
                     }
                 }
                 R.id.miAccount -> {
                     supportFragmentManager.beginTransaction().apply{
-                        // on click action here
+                        viewPager.currentItem = 3
                         addToBackStack(null)
                         commit()
                     }
